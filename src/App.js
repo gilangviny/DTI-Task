@@ -43,17 +43,15 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Switch>
-        <main className="l-main">
-          {routes.map((route) => {
-            return (
-              <Route
-                path={route.path}
-                component={route.component}
-                key={route.path}
-              />
-            );
-          })}
-        </main>
+        {routes.map((route) => {
+          return (
+            <Route
+              path={route.path}
+              component={route.component}
+              key={route.path}
+            />
+          );
+        })}
       </Switch>
       <Footer />
     </BrowserRouter>
