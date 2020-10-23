@@ -1,15 +1,44 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../index.css';
 
 const Home = () => {
-  const [sureName, setSureName] = useState('Gilang Ramadhan');
   const listIcon = ['bx bxl-linkedin', 'bx bxl-github', 'bx bxl-behance'];
+  const [sureName, setSureName] = useState('Gilang Ramadhan');
 
   function handleClickName() {
     setSureName('GILANG RAMADHAN');
+  }
+
+  const themes = {
+    light: {
+      foreground: '#fff',
+      background: '#00204a',
+    },
+    dark: {
+      foreground: '#ffffff',
+      background: '#222222',
+    },
+  };
+  const ThemeContext = React.createContext(themes.light);
+
+  function ThemedButton() {
+    const theme = useContext(ThemeContext);
+    return (
+      <>
+        <button
+          style={{ background: theme.background, color: theme.foreground }}
+          className="button"
+          type="button"
+          onClick={handleClickName}
+        >
+          Style by Context, Click to Change
+        </button>
+      </>
+    );
   }
 
   return (
@@ -23,9 +52,9 @@ const Home = () => {
           <br />
           {sureName}
         </h1>
-        <button className="button" type="button" onClick={handleClickName}>
-          Click me
-        </button>
+        <ThemeContext.Provider value={themes.light}>
+          <ThemedButton />
+        </ThemeContext.Provider>
       </div>
 
       <div className="home__social">
@@ -44,4 +73,5 @@ const Home = () => {
     </section>
   );
 };
+
 export default Home;
