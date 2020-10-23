@@ -15,8 +15,8 @@ const Home = () => {
 
   const themes = {
     light: {
-      background: '#6a097d',
-      foreground: '#f1d4d4',
+      background: '#00bbf0',
+      foreground: '#fff',
     },
     dark: {
       foreground: '#ffffff',
