@@ -13,6 +13,7 @@ const Home = () => {
     setSureName('GILANG RAMADHAN');
   }
 
+  // start useContext
   const themes = {
     light: {
       background: '#00bbf0',
@@ -38,6 +39,7 @@ const Home = () => {
       </button>
     );
   }
+  // end useContext
 
   return (
     <section className="home bd-grid" id="home">
