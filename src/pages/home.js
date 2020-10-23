@@ -15,8 +15,8 @@ const Home = () => {
 
   const themes = {
     light: {
-      foreground: '#fff',
-      background: '#00204a',
+      background: '#6a097d',
+      foreground: '#f1d4d4',
     },
     dark: {
       foreground: '#ffffff',
@@ -28,16 +28,14 @@ const Home = () => {
   function ThemedButton() {
     const theme = useContext(ThemeContext);
     return (
-      <>
-        <button
-          style={{ background: theme.background, color: theme.foreground }}
-          className="button"
-          type="button"
-          onClick={handleClickName}
-        >
-          Style by Context, Click to Change
-        </button>
-      </>
+      <button
+        style={{ background: theme.background, color: theme.foreground }}
+        className="button"
+        type="button"
+        onClick={handleClickName}
+      >
+        Style by Context, Click to Change
+      </button>
     );
   }
 
